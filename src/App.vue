@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">about</router-link> | 
+      <router-link to="/about">About</router-link> | 
       <router-link to="/sustainable">Sustainable Courses</router-link> | 
       <router-link to="/faculty">For Faculty</router-link>
 
