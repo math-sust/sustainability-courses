@@ -1,37 +1,37 @@
-
 <template>
   <div class="student">
+    <div>Filter by keywords: <input /></div>
     <div>
-      Filter by keywords: <input />
-    </div>
-    <div>
-      Select by category: 
+      Select by category:
       <select>
         <option>Water reourses</option>
         <option>Carbon emissions</option>
       </select>
     </div>
     <div v-for="c in courses" :key="c">
-      <Course :title="c.title" :course="c.course" :CRN="c.CRN" :description="c.description" />
-    
+      <Course
+        :title="c.title"
+        :course="c.course"
+        :CRN="c.CRN"
+        :description="c.description"
+      />
     </div>
   </div>
 </template>
 
-
 <script>
-import Course from '@/components/Course.vue'
-import course_list from '@/assets/courses.json'
+import Course from "@/components/Course.vue";
+import course_list from "@/assets/courses.json";
 export default {
   name: "Sustainable",
   components: {
     Course,
   },
-  data: function () {
+  data: function() {
     return {
       courses: course_list,
-    }
-  }
+    };
+  },
 };
 </script>
 

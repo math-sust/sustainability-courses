@@ -1,38 +1,38 @@
 [
-    {
-        "title": "Machine Learning",
-        "subject": "CS",
-        "CRN": 11111,
-        "course": "453X",
-        "instructor": "Jacob Whitehill",
-        "section": "D01",
-        "description": "This course covers sustainability topics such as..."
-    },
-    {
-        "title": "Machine Learning",
-        "subject": "CS",
-        "CRN": 11111,
-        "course": "453X",
-        "instructor": "Jacob Whitehill",
-        "section": "D01",
-        "description": "This course covers sustainability topics such as..."
-    },
-    {
-        "title": "Machine Learning",
-        "subject": "CS",
-        "CRN": 11111,
-        "course": "453X",
-        "instructor": "Jacob Whitehill",
-        "section": "D01",
-        "description": "This course covers sustainability topics such as..."
-    },
-    {
-        "title": "Machine Learning",
-        "subject": "CS",
-        "CRN": 11111,
-        "course": "453X",
-        "instructor": "Jacob Whitehill",
-        "section": "D01",
-        "description": "This course covers sustainability topics such as..."
-    }
+  {
+    "title": "Machine Learning",
+    "subject": "CS",
+    "CRN": 11111,
+    "course": "453X",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Machine Learning",
+    "subject": "CS",
+    "CRN": 11111,
+    "course": "453X",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Machine Learning",
+    "subject": "CS",
+    "CRN": 11111,
+    "course": "453X",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Machine Learning",
+    "subject": "CS",
+    "CRN": 11111,
+    "course": "453X",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  }
 ]
