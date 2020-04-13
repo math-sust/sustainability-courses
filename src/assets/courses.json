@@ -1,9 +1,9 @@
 [
   {
-    "title": "Machine Learning",
+    "title": "Artificial Intelligence",
     "subject": "CS",
-    "CRN": 11111,
-    "course": "453X",
+    "CRN": 22222,
+    "course": "4341",
     "instructor": "Jacob Whitehill",
     "section": "D01",
     "description": "This course covers sustainability topics such as..."
@@ -18,20 +18,83 @@
     "description": "This course covers sustainability topics such as..."
   },
   {
-    "title": "Machine Learning",
+    "title": "SOCIAL SCIENCE RESEARCH FOR THE IQP",
+    "subject": "ID",
+    "CRN": 33333,
+    "course": "2050",
+    "instructor": "Dr. B",
+    "section": "C01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
     "subject": "CS",
-    "CRN": 11111,
-    "course": "453X",
+    "CRN": 22222,
+    "course": "4341",
     "instructor": "Jacob Whitehill",
     "section": "D01",
     "description": "This course covers sustainability topics such as..."
   },
   {
-    "title": "Machine Learning",
+    "title": "Artificial Intelligence",
     "subject": "CS",
-    "CRN": 11111,
-    "course": "453X",
+    "CRN": 22222,
+    "course": "4341",
     "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "CRN": 22222,
+    "course": "4341",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "CRN": 22222,
+    "course": "4341",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "CRN": 22222,
+    "course": "4341",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "CRN": 22222,
+    "course": "4341",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "CRN": 22222,
+    "course": "4341",
+    "instructor": "Jacob Whitehill",
+    "section": "D01",
+    "description": "This course covers sustainability topics such as..."
+  },
+  {
+    "title": "IQP: Worcester, New England",
+    "subject": "IQP",
+    "CRN": 44444,
+    "course": "1234",
+    "instructor": "Dr. B",
     "section": "D01",
     "description": "This course covers sustainability topics such as..."
   }

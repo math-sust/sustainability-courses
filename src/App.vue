@@ -1,63 +1,54 @@
 <template>
-  <div class="page-container">
-    <md-app md-waterfall md-mode="fixed">
-      <md-app-toolbar class="md-primary">
-        <span class="md-title">My Title</span>
-      </md-app-toolbar>
-
-      <md-app-drawer md-permanent="full">
-        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
-
-        <md-list>
-          <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <router-link to="/">Home</router-link>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>send</md-icon>
-            <router-link to="/about">About</router-link>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>delete</md-icon>
-            <router-link to="/sustainable">Sustainable Courses</router-link>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>error</md-icon>
-            <router-link to="/faculty">For Faculty</router-link>
-          </md-list-item>
-      </md-app-drawer>
-
-      <md-app-content>
-        <router-view />
-      </md-app-content>
-    </md-app>
+  <div id="app">
+    <div id="nav">
+      <md-tabs md-sync-route md-alignment="centered">
+        <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
+        <md-tab id="tab-about" md-label="About" to="/about"></md-tab>
+        <md-tab
+          id="tab-sustainable"
+          md-label="Sustainable Courses"
+          to="/sustainable"
+        ></md-tab>
+        <md-tab id="tab-faculty" md-label="Faculty Page" to="/faculty"></md-tab>
+      </md-tabs>
+    </div>
+    <div id="content">
+      <router-view />
+    </div>
   </div>
 </template>
 
+<style lang="scss">
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
 
+@include md-register-theme(
+  "default",
+  (
+    primary: md-get-palette-color(green, 300),
+    // The primary color of your application
+      accent: md-get-palette-color(cyan, 200) // The accent or secondary color,
+  )
+);
 
-<style>
-/* #app {
+@import "~vue-material/dist/theme/all"; // Apply the theme
+
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+#content {
+  display: flex;
+  margin: 3% auto;
+  justify-content: center;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
+// #nav a {
+//   font-weight: bold;
+//   color: #2c3e50;
+// }
+// #nav a.router-link-exact-active {
+//   color: #42b983;
+// }
 </style>

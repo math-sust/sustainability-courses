@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/iqp_logo.png">
-    <HelloWorld msg="Welcome to the WPI Sustainable Recourses Platform!"/>
+    <img alt="Sustainable Studies Logo" src="../assets/iqp_logo.png">
+    <h1> Welcome to the WPI Sustainable Recourses Platform! </h1>
+
+    <div class="links">
+      <md-button to="/sustainable" class="md-raised md-primary">Sustainable Courses</md-button>
+      <md-button to="/faculty" class="md-raised md-primary">Faculty resources</md-button>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
