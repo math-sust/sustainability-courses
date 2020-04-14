@@ -1,9 +1,13 @@
+
+
 <template>
-  <div class="course">
-    <h1>{{ title }}</h1>
-    <h2>{{ subject }}{{ course }}</h2>
-    <div>{{ CRN }}</div>
-    <div>{{ description }}</div>
+  <div class="courseRow">
+    <tr>
+	<td>{{ title }}</td>
+	<td>{{ subject }}{{ course }}</td>
+	<td>{{ CRN }}</td>
+	<td>{{ description }}</td>
+    </tr>
   </div>
 </template>
 
