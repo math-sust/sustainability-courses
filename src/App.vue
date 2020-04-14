@@ -1,17 +1,37 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
-      <router-link to="/sustainable">Sustainable Courses</router-link> | 
-      <router-link to="/faculty">For Faculty</router-link>
-
+      <md-tabs md-sync-route md-alignment="centered">
+        <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
+        <md-tab id="tab-about" md-label="About" to="/about"></md-tab>
+        <md-tab
+          id="tab-sustainable"
+          md-label="Sustainable Courses"
+          to="/sustainable"
+        ></md-tab>
+        <md-tab id="tab-faculty" md-label="Faculty Page" to="/faculty"></md-tab>
+      </md-tabs>
     </div>
-    <router-view/>
+    <div id="content">
+      <router-view />
+    </div>
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme(
+  "default",
+  (
+    primary: md-get-palette-color(green, 300),
+    // The primary color of your application
+      accent: md-get-palette-color(cyan, 200) // The accent or secondary color,
+  )
+);
+
+@import "~vue-material/dist/theme/all"; // Apply the theme
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -19,17 +39,16 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+#content {
+  display: flex;
+  margin: 3% auto;
+  justify-content: center;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+// #nav a {
+//   font-weight: bold;
+//   color: #2c3e50;
+// }
+// #nav a.router-link-exact-active {
+//   color: #42b983;
+// }
 </style>

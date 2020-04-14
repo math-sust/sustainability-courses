@@ -1,156 +1,153 @@
-
 <template>
+  <div>
+    <md-table
+      v-model="searched"
+      md-sort="title"
+      md-sort-order="asc"
+      md-card
+      md-fixed-header
+    >
+      <md-table-toolbar>
+        <div class="md-toolbar-section-start">
+          <h1 class="md-title">Sustainable Courses</h1>
+        </div>
+        <div class="md-toolbar-section-start">
+            <md-menu  md-direction="bottom-end">
+                <md-button md-menu-trigger>SDGs</md-button>
+                <md-menu-content>
+                    <p>Sustainable Development Goals</p>
 
-	<div class="student-page-container">
-		<md-app>
-			<md-app-toolbar class="md-primary">
-				<span class="md-title">Sustainable Courses</span>
-			</md-app-toolbar>
+                    <div class="sdgs">
+<!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
 
-			<md-app-drawer md-permanent="full">
-				<md-toolbar class="md-transparent" md-elevation="0">
-					Filter 
-				</md-toolbar>
+                        <div class="sdgs">
+                            <button v-on:click="selectAllSDG">Select All</button>
+                            <button v-on:click="selectNoneSDG">Select None</button>
+                        <div v-for="SDG in sdgs" :key="SDG.num">
+                            <div class="sdg" width="30%">
+                                <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" >
+                            </div>
+                        </div>
+                        </div>
+<!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
 
-				<md-list>
+                    </div>
+                </md-menu-content>
+            </md-menu>
+            </div>
 
-					<md-list-item>
-						<form><input placeholder="Search by Name">
+        <md-field md-clearable class="md-toolbar-section-end">
+          <md-input
+            placeholder="Search by name..."
+            v-model="search"
+            @input="searchOnTable"
+          />
+        </md-field>
+      </md-table-toolbar>
 
-						</form>
-					</md-list-item>
+      <md-table-empty-state
+        md-label="No course found"
+        :md-description="
+          `No course found for this '${search}' query. Try a different search keyword.`
+        "
+      >
+      </md-table-empty-state>
 
-					<md-list-item>
-				<md-menu  md-direction="bottom-end">
-					<md-button md-menu-trigger>SDGs</md-button>
-					<md-menu-content>
-						<p>SDGS</p>
-						<div class="row">
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-							<div class="sdg">
-								<img src ="../assets/sdgs/sdg1.jpg">
-							</div>
-						</div>
-
-					</md-menu-content>
-
-				</md-menu >
-					</md-list-item>
-					<md-list-item>
-
-					<md-menu  md-direction="right">
-						<md-button md-menu-trigger>Sort</md-button>
-						<md-menu-content>
-							<md-menu-item>Subject</md-menu-item>
-							<md-menu-item>Term</md-menu-item>
-							<md-menu-item>Minor</md-menu-item>
-						</md-menu-content>
-
-					</md-menu >
-					</md-list-item>
-			</md-list>
-		</md-app-drawer>
-
-		<md-app-content>
-
-			<div v-for="c in courses" :key="c">
-				<Course :title="c.title" :course="c.course" :CRN="c.CRN" :description="c.description" />
-			</div>
-			<div v-for="c in courses" :key="c">
-				<Course :title="c.title" :course="c.course" :CRN="c.CRN" :description="c.description" />
-			</div>
-			<div v-for="c in courses" :key="c">
-				<Course :title="c.title" :course="c.course" :CRN="c.CRN" :description="c.description" />
-			</div>
-			<div v-for="c in courses" :key="c">
-				<Course :title="c.title" :course="c.course" :CRN="c.CRN" :description="c.description" />
-			</div>
-		</md-app-content>
-	</md-app>
-</div>
-
+      <md-table-row slot="md-table-row" slot-scope="{ item }">
+        <md-table-cell md-label="Title" md-sort-by="title">{{
+          item.title
+        }}</md-table-cell>
+        <md-table-cell md-label="Number" md-sort-by="subject">{{
+          item.subject + item.course
+        }}</md-table-cell>
+        <md-table-cell md-label="CRN" md-sort-by="CRN">{{
+          item.CRN
+        }}</md-table-cell>
+        <md-table-cell md-label="Instructor" md-sort-by="instructor">{{
+          item.instructor
+        }}</md-table-cell>
+        <md-table-cell md-label="Section" md-sort-by="section" md-numeric>{{
+          item.section
+        }}</md-table-cell>
+      </md-table-row>
+    </md-table>
+  </div>
 </template>
 
-
 <script>
-import Course from '@/components/Course.vue'
-import course_list from '@/assets/courses.json'
+import course_list from "@/assets/courses.json";
+const toLower = (text) => {
+  return text.toString().toLowerCase();
+};
+
+const searchByName = (items, term) => {
+  if (term) {
+    return items.filter((item) => toLower(item.title).includes(toLower(term)));
+  }
+
+  return items;
+};
+
+const SDGS = () => {
+    var ret = [];
+    for (var i = 1; i < 18; i++) {
+        ret.push({num:i,src:require("../assets/sdgs/E-WEB-Goal-" + i + ".png")});
+    }
+    return ret;
+};
+
+
+
 export default {
-	name: "Sustainable",
-	components: {
-		Course,
-	},
-	data: function () {
-		return {
-			courses: course_list,
-		}
-	}
+
+
+  name: "Sustainable",
+  data: () => ({
+    search: null,
+    searched: [],
+    courses: course_list,
+    /*
+    Example
+    {
+        "title": "Machine Learning",
+        "subject": "CS",
+        "CRN": 11111,
+        "course": "453X",
+        "instructor": "Jacob Whitehill",
+        "section": "D01",
+        "description": "This course covers sustainability topics such as..."
+    },
+     */
+    sdgs: SDGS()
+  }),
+  methods: {
+    searchOnTable() {
+      this.searched = searchByName(this.courses, this.search);
+    },
+      selectAllSDG (){
+          console.log("TODO");
+      },
+      selectNoneSDG (){
+          console.log("TODO");
+      },
+      toggleSDG(num){
+        console.log("TODO" + num);
+      }
+  },
+  created() {
+    this.searched = this.courses;
+  },
+
+
 };
 
 
 </script>
 
-<style scoped>
-h3 {
-	margin: 40px 0 0;
-}
-ul {
-	list-style-type: none;
-	padding: 0;
-}
-li {
-	display: inline-block;
-	margin: 0 10px;
-}
-a {
-	color: #42b983;
+
+<style lang="scss" scoped>
+.md-field {
+  max-width: 300px;
 }
 
 intro{
@@ -179,5 +176,13 @@ intro{
 	width: 230px;
 	max-width: calc(100vw - 125px);
 }
+
+.row::after {
+      content: "";
+      clear: both;
+      display: table;
+}
+
+
 
 </style>
