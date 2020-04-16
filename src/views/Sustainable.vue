@@ -12,29 +12,28 @@
           <h1 class="md-title">Sustainable Courses</h1>
         </div>
         <div class="md-toolbar-section-start">
-            <md-menu  md-direction="bottom-end">
-                <md-button md-menu-trigger>SDGs</md-button>
-                <md-menu-content>
-                    <p>Sustainable Development Goals</p>
+          <md-menu md-direction="bottom-end">
+            <md-button md-menu-trigger>SDGs</md-button>
+            <md-menu-content>
+              <p>Sustainable Development Goals</p>
 
-                    <div class="sdgs">
-<!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
+              <div class="sdgs">
+                <!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
 
-                        <div class="sdgs">
-                            <button v-on:click="selectAllSDG">Select All</button>
-                            <button v-on:click="selectNoneSDG">Select None</button>
-                        <div v-for="SDG in sdgs" :key="SDG.num">
-                            <div class="sdg" width="30%">
-                                <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" >
-                            </div>
-                        </div>
-                        </div>
-<!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
-
+                <div class="sdgs">
+                  <button v-on:click="selectAllSDG">Select All</button>
+                  <button v-on:click="selectNoneSDG">Select None</button>
+                  <div v-for="SDG in sdgs" :key="SDG.num">
+                    <div class="sdg" width="30%">
+                      <img v-bind:src="SDG.src" v-on:click="toggleSDG(1)" />
                     </div>
-                </md-menu-content>
-            </md-menu>
-            </div>
+                  </div>
+                </div>
+                <!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
+              </div>
+            </md-menu-content>
+          </md-menu>
+        </div>
 
         <md-field md-clearable class="md-toolbar-section-end">
           <md-input
@@ -76,31 +75,30 @@
 
 <script>
 import course_list from "@/assets/courses.json";
-const toLower = (text) => {
+const toLower = text => {
   return text.toString().toLowerCase();
 };
 
 const searchByName = (items, term) => {
   if (term) {
-    return items.filter((item) => toLower(item.title).includes(toLower(term)));
+    return items.filter(item => toLower(item.title).includes(toLower(term)));
   }
 
   return items;
 };
 
 const SDGS = () => {
-    var ret = [];
-    for (var i = 1; i < 18; i++) {
-        ret.push({num:i,src:require("../assets/sdgs/E-WEB-Goal-" + i + ".png")});
-    }
-    return ret;
+  var ret = [];
+  for (var i = 1; i < 18; i++) {
+    ret.push({
+      num: i,
+      src: require("../assets/sdgs/E-WEB-Goal-" + i + ".png")
+    });
+  }
+  return ret;
 };
 
-
-
 export default {
-
-
   name: "Sustainable",
   data: () => ({
     search: null,
@@ -124,65 +122,54 @@ export default {
     searchOnTable() {
       this.searched = searchByName(this.courses, this.search);
     },
-      selectAllSDG (){
-          console.log("TODO");
-      },
-      selectNoneSDG (){
-          console.log("TODO");
-      },
-      toggleSDG(num){
-        console.log("TODO" + num);
-      }
+    selectAllSDG() {
+      console.log("TODO");
+    },
+    selectNoneSDG() {
+      console.log("TODO");
+    },
+    toggleSDG(num) {
+      console.log("TODO" + num);
+    }
   },
   created() {
     this.searched = this.courses;
-  },
-
-
+  }
 };
-
-
 </script>
-
 
 <style lang="scss" scoped>
 .md-field {
   max-width: 300px;
 }
 
-intro{
-
-}
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .sdg {
-	float: left;
-	width: 33.33%;
-	padding: 5px;
+  float: left;
+  width: 33.33%;
+  padding: 5px;
 }
 
 /* Clear floats after image containers */
 .row::after {
-	content: "";
-	clear: both;
-	display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .md-app {
-	max-height: 400px;
-	border: 1px solid rgba(#000, .12);
+  max-height: 400px;
+  border: 1px solid rgba(#000, 0.12);
 }
 
 .md-drawer {
-	width: 230px;
-	max-width: calc(100vw - 125px);
+  width: 230px;
+  max-width: calc(100vw - 125px);
 }
 
 .row::after {
-      content: "";
-      clear: both;
-      display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
-
-
-
 </style>
