@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <md-tabs md-sync-route md-alignment="centered">
+      <md-tabs md-sync-route class="md-primary" md-alignment="centered">
         <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
         <md-tab id="tab-about" md-label="About" to="/about"></md-tab>
         <md-tab
@@ -26,12 +26,11 @@
   (
     primary: md-get-palette-color(green, 300),
     // The primary color of your application
-      accent: md-get-palette-color(cyan, 200) // The accent or secondary color,
+      accent: md-get-palette-color(cyan, 200) // The accent or secondary color,,
   )
 );
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,7 +47,8 @@
 //   font-weight: bold;
 //   color: #2c3e50;
 // }
-// #nav a.router-link-exact-active {
-//   color: #42b983;
-// }
+#nav a.router-link-exact-active {
+  font-weight: bold;
+  color: white ;
+}
 </style>

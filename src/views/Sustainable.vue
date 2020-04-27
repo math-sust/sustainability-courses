@@ -12,24 +12,37 @@
           <h1 class="md-title">Sustainable Courses</h1>
         </div>
         <div class="md-toolbar-section-start">
-          <md-menu md-direction="bottom-end">
-            <md-button md-menu-trigger>SDGs</md-button>
+          <md-menu
+            md-direction="bottom-end"
+            md-size="auto"
+            :md-close-on-click="false"
+            :md-close-on-select="false"
+          >
+            <md-button class="md-raised md-primary" md-menu-trigger>SDG Filter</md-button>
             <md-menu-content>
               <p>Sustainable Development Goals</p>
 
               <div class="sdgs">
-                <!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
-
                 <div class="sdgs">
-                  <button v-on:click="selectAllSDG">Select All</button>
-                  <button v-on:click="selectNoneSDG">Select None</button>
-                  <div v-for="SDG in sdgs" :key="SDG.num">
-                    <div class="sdg" width="30%">
-                      <img v-bind:src="SDG.src" v-on:click="toggleSDG(1)" />
+                  <md-button v-on:click="selectAllSDG" class="md-dense md-primary">Select All</md-button>
+                  <md-button v-on:click="selectNoneSDG" class="md-dense md-primary">Select None</md-button>
+                  <div
+                    v-for="SDG in sdgs"
+                    :key="SDG.num"
+                    v-on:click="toggleSDG(SDG.num)"
+                  >
+                    <div class="sdg" width="33%">
+                      <img
+                        ref="sdgz"
+                        v-bind:src="SDG.src"
+                        v-bind:class="[
+                          '' + SDG.num,
+                          SDG.active ? `active` : `inactive`
+                        ]"
+                      />
                     </div>
                   </div>
                 </div>
-                <!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
               </div>
             </md-menu-content>
           </md-menu>
@@ -92,7 +105,8 @@ const SDGS = () => {
   for (var i = 1; i < 18; i++) {
     ret.push({
       num: i,
-      src: require("../assets/sdgs/E-WEB-Goal-" + i + ".png")
+      src: require("../assets/sdgs/E-WEB-Goal-" + i + ".png"),
+      active: 1
     });
   }
   return ret;
@@ -123,13 +137,24 @@ export default {
       this.searched = searchByName(this.courses, this.search);
     },
     selectAllSDG() {
-      console.log("TODO");
+      this.sdgs.forEach(sdg => (sdg.active = 1));
     },
     selectNoneSDG() {
       console.log("TODO");
+      this.sdgs.forEach(sdg => (sdg.active = 0));
     },
     toggleSDG(num) {
-      console.log("TODO" + num);
+      console.log(num - 1);
+      console.log(this.sdgs[num - 1]);
+      if (this.sdgs[num - 1].active === 1) {
+        // this.$refs.sdgz[num-1].classList.remove("active");
+        this.sdgs[num - 1].active = 0;
+      } else {
+        // this.$refs.sdgz[num-1].setAttribute('style','filter:brightness(100%)');
+        this.sdgs[num - 1].active = 1;
+      }
+
+      console.log(this.$refs.sdgz[num - 1]);
     }
   },
   created() {
@@ -143,11 +168,20 @@ export default {
   max-width: 300px;
 }
 
-/* Three image containers (use 25% for four, and 50% for two, etc) */
+intro {
+}
 .sdg {
   float: left;
   width: 33.33%;
   padding: 5px;
+}
+
+.active {
+  filter: brightness(100%);
+}
+
+.inactive {
+  filter: brightness(50%);
 }
 
 /* Clear floats after image containers */
@@ -167,9 +201,8 @@ export default {
   max-width: calc(100vw - 125px);
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+table {
+  width: 800px;
 }
+
 </style>

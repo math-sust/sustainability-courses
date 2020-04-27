@@ -5,6 +5,8 @@ import router from "./router";
 import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import VueMaterial from 'vue-material'
+/* Import master CSS */
+import '@/style/style.css';
 // import 'vue-material/dist/theme/default.css'
 // import "vue-material/dist/vue-material.min.css";
 // import "vue-material/dist/theme/black-green-light.css";
