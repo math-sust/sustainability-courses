@@ -1,5 +1,24 @@
 <template>
-  <div>
+  <div style="background-color:#42b983">
+
+      <div class="filters" width = 30%>
+          <p>Filt
+              ers</p>
+          <!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
+
+          <div class="sdgs">
+              <button v-on:click="selectAllSDG">Select All</button>
+              <button v-on:click="selectNoneSDG">Select None</button>
+              <div v-for="SDG in sdgs" :key="SDG.num" v-on:click="toggleSDG(SDG.num)" >
+                  <div class = sdg  width="50%">
+                      <img  ref="sdgz" v-bind:src=SDG.src v-bind:class="[ '' + SDG.num,SDG.active ? `active` : `inactive`]" >
+                  </div>
+              </div>
+          </div>
+          <!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
+
+      </div>
+      <div>
     <md-table
       v-model="searched"
       md-sort="title"
@@ -17,21 +36,7 @@
                 <md-menu-content >
                     <p>Sustainable Development Goals</p>
 
-                    <div class="sdgs">
-<!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
 
-                        <div class="sdgs">
-                            <button v-on:click="selectAllSDG">Select All</button>
-                            <button v-on:click="selectNoneSDG">Select None</button>
-                        <div v-for="SDG in sdgs" :key="SDG.num" v-on:click="toggleSDG(SDG.num)" >
-                            <div class = sdg  width="33%">
-                                <img  ref="sdgz" v-bind:src=SDG.src v-bind:class="[ '' + SDG.num,SDG.active ? `active` : `inactive`]" >
-                            </div>
-                        </div>
-                        </div>
-<!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
-
-                    </div>
                 </md-menu-content>
             </md-menu>
             </div>
@@ -48,29 +53,24 @@
       <md-table-empty-state
         md-label="No course found"
         :md-description="
-          `No course found for this '${search}' query. Try a different search keyword.`
+          `No course found for this query. Try selecting more SDGs or using a different search keyword.`
         "
       >
       </md-table-empty-state>
 
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Title" md-sort-by="title">{{
-          item.title
+        <md-table-cell md-label="Name" md-sort-by="Name">{{
+          item.Name
         }}</md-table-cell>
-        <md-table-cell md-label="Number" md-sort-by="subject">{{
-          item.subject + item.course
+        <md-table-cell md-label="Subject" md-sort-by="Subject">{{
+          item.Subject
         }}</md-table-cell>
-        <md-table-cell md-label="CRN" md-sort-by="CRN">{{
-          item.CRN
-        }}</md-table-cell>
-        <md-table-cell md-label="Instructor" md-sort-by="instructor">{{
-          item.instructor
-        }}</md-table-cell>
-        <md-table-cell md-label="Section" md-sort-by="section" md-numeric>{{
-          item.section
+        <md-table-cell md-label="Number" md-sort-by="Number">{{
+          item.Number
         }}</md-table-cell>
       </md-table-row>
     </md-table>
+  </div>
   </div>
 </template>
 
@@ -80,12 +80,24 @@ const toLower = (text) => {
   return text.toString().toLowerCase();
 };
 
-const searchByName = (items, term) => {
-  if (term) {
-    return items.filter((item) => toLower(item.title).includes(toLower(term)));
-  }
+const searchByName = (items, term, sdgs) => {
+    var results = items;
+    if (term) {
+        results = items.filter((item) => toLower(item.Name).includes(toLower(term)));
+    }
+    var activeSDGs = []
+    console.log(sdgs)
+    for(var i = 0; i < 17; i++){
+        if(sdgs[i].active == 1){
+            activeSDGs.push(i+1);
+        }
+    }
+    console.log("active SDGS")
+    console.log(activeSDGs)
+    console.log(results[0].SDGs.some(r=> activeSDGs.indexOf(r) >=0))
+    results = results.filter((r) => r.SDGs.some(r=> activeSDGs.indexOf(r) >=0));
 
-  return items;
+    return results;
 };
 
 const SDGS = () => {
@@ -122,19 +134,21 @@ export default {
   }),
   methods: {
     searchOnTable() {
-      this.searched = searchByName(this.courses, this.search);
+      this.searched = searchByName(this.courses, this.search,this.sdgs);
     },
       selectAllSDG (){
           this.sdgs.forEach(sdg => sdg.active = 1);
+          this.searchOnTable();
 
       },
       selectNoneSDG (){
           console.log("TODO");
           this.sdgs.forEach(sdg => sdg.active = 0);
+          this.searchOnTable();
       },
       toggleSDG(num){
-        console.log(num-1);
-        console.log(this.sdgs[num-1])
+        //console.log(num-1);
+        //console.log(this.sdgs[num-1])
           if(this.sdgs[num-1].active === 1){
               // this.$refs.sdgz[num-1].classList.remove("active");
               this.sdgs[num-1].active = 0;
@@ -143,8 +157,8 @@ export default {
               // this.$refs.sdgz[num-1].setAttribute('style','filter:brightness(100%)');
               this.sdgs[num-1].active = 1;
           }
-
-          console.log(this.$refs.sdgz[num-1]);
+          this.searchOnTable();
+          //console.log(this.$refs.sdgz[num-1]);
       }
   },
   created() {
@@ -168,8 +182,12 @@ intro{
 }
 .sdg {
 	float: left;
-	width: 33.33%;
+	width: 33%;
 	padding: 5px;
+}
+
+.sdgs{
+    width : 30%;
 }
 
 .active{
