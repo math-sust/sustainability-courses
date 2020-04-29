@@ -31,16 +31,41 @@
           <h1 class="md-title">Sustainable Courses</h1>
         </div>
         <div class="md-toolbar-section-start">
-            <md-menu  md-direction="bottom-end" md-size="auto" :md-close-on-click="false" :md-close-on-select="false">
-                <md-button md-menu-trigger>SDGs</md-button>
-                <md-menu-content >
-                    <p>Sustainable Development Goals</p>
+          <md-menu
+            md-direction="bottom-end"
+            md-size="auto"
+            :md-close-on-click="false"
+            :md-close-on-select="false"
+          >
+            <md-button class="md-raised md-primary" md-menu-trigger>SDG Filter</md-button>
+            <md-menu-content>
+              <p>Sustainable Development Goals</p>
 
-
-                </md-menu-content>
-            </md-menu>
-            </div>
-
+              <div class="sdgs">
+                <div class="sdgs">
+                  <md-button v-on:click="selectAllSDG" class="md-dense md-primary">Select All</md-button>
+                  <md-button v-on:click="selectNoneSDG" class="md-dense md-primary">Select None</md-button>
+                  <div
+                    v-for="SDG in sdgs"
+                    :key="SDG.num"
+                    v-on:click="toggleSDG(SDG.num)"
+                  >
+                    <div class="sdg" width="33%">
+                      <img
+                        ref="sdgz"
+                        v-bind:src="SDG.src"
+                        v-bind:class="[
+                          '' + SDG.num,
+                          SDG.active ? `active` : `inactive`
+                        ]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-menu-content>
+          </md-menu>
+        </div>
         <md-field md-clearable class="md-toolbar-section-end">
           <md-input
             placeholder="Search by name..."
@@ -76,7 +101,7 @@
 
 <script>
 import course_list from "@/assets/courses.json";
-const toLower = (text) => {
+const toLower = text => {
   return text.toString().toLowerCase();
 };
 
@@ -101,18 +126,18 @@ const searchByName = (items, term, sdgs) => {
 };
 
 const SDGS = () => {
-    var ret = [];
-    for (var i = 1; i < 18; i++) {
-        ret.push({num:i,src:require("../assets/sdgs/E-WEB-Goal-" + i + ".png"),active:1});
-    }
-    return ret;
+  var ret = [];
+  for (var i = 1; i < 18; i++) {
+    ret.push({
+      num: i,
+      src: require("../assets/sdgs/E-WEB-Goal-" + i + ".png"),
+      active: 1
+    });
+  }
+  return ret;
 };
 
-
-
 export default {
-
-
   name: "Sustainable",
   data: () => ({
     search: null,
@@ -163,22 +188,16 @@ export default {
   },
   created() {
     this.searched = this.courses;
-  },
-
-
+  }
 };
-
-
 </script>
-
 
 <style lang="scss" scoped>
 .md-field {
   max-width: 300px;
 }
 
-intro{
-
+intro {
 }
 .sdg {
 	float: left;
@@ -194,33 +213,29 @@ intro{
     filter: brightness(100%);
 }
 
-.inactive{
-    filter: brightness(50%);
+.inactive {
+  filter: brightness(50%);
 }
 
 /* Clear floats after image containers */
 .row::after {
-	content: "";
-	clear: both;
-	display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .md-app {
-	max-height: 400px;
-	border: 1px solid rgba(#000, .12);
+  max-height: 400px;
+  border: 1px solid rgba(#000, 0.12);
 }
 
 .md-drawer {
-	width: 230px;
-	max-width: calc(100vw - 125px);
+  width: 230px;
+  max-width: calc(100vw - 125px);
 }
 
-.row::after {
-      content: "";
-      clear: both;
-      display: table;
+table {
+  width: 800px;
 }
-
-
 
 </style>
