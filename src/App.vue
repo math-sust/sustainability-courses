@@ -12,7 +12,7 @@
         <md-tab id="tab-faculty" md-label="Faculty Page" to="/faculty"></md-tab>
       </md-tabs>
     </div>
-    <div id="content">
+    <div id="content" class="md-elevation-10">
       <router-view />
     </div>
   </div>
@@ -37,12 +37,20 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  padding-bottom: 10vh;
 }
 #content {
   display: flex;
-  margin: 3% auto;
+  margin: 0 auto;
+  margin-top: 4vh;
   justify-content: center;
-  max-width: 1200px;
+  width: 80vw;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: #F6F8F4;
+  opacity: 0.95;
+  border-radius: 20px;
 }
 // #nav a {
 //   font-weight: bold;
@@ -52,11 +60,11 @@
   font-weight: bold;
   color: white ;
 }
-
-Html, body {
+body {
   background-image: url('assets/bridge.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 </style>

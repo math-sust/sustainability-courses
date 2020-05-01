@@ -1,5 +1,5 @@
 <template>
-  <div class="about" style="background-color:#42b983">
+  <div class="about">
     <h1>This is an about page</h1>
     <div>
       Hi, We are the Sustainablity Studies group! This is a deliverable for our

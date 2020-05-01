@@ -1,5 +1,5 @@
 <template>
-  <div class="home" style="background-color:#42b983">
+  <div class="home">
     <img alt="Sustainable Studies Logo" src="../assets/iqp_logo.png">
     <h1> Welcome to the WPI Sustainable Recourses Platform! </h1>
 

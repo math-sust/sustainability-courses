@@ -1,12 +1,14 @@
 <template>
-  <div style="background-color:#42b983">
-    <div class="filters" width="30%">
-      <p>Filt ers</p>
-      <!--                        <img src="../assets/sdgs/E-WEB-Goal-1.png" v-on:click="toggleSDG(1)" width="100">-->
-
+  <div class="sustainable">
+    <h1>Sustainability-Related Courses</h1>
+    <div id="filters" width="30%">
       <div class="sdgs">
-        <button v-on:click="selectAllSDG">Select All</button>
-        <button v-on:click="selectNoneSDG">Select None</button>
+        <md-button v-on:click="selectAllSDG" class="md-raised md-primary"
+          >Select All</md-button
+        >
+        <md-button v-on:click="selectNoneSDG" class="md-raised md-primary"
+          >Select None</md-button
+        >
         <div v-for="SDG in sdgs" :key="SDG.num" v-on:click="toggleSDG(SDG.num)">
           <div class="sdg" width="50%">
             <img
@@ -17,16 +19,9 @@
           </div>
         </div>
       </div>
-      <!--                        <img v-bind:src=SDG.src v-on:click="toggleSDG(1)" width="100">-->
     </div>
-    <div>
-      <md-table
-        v-model="searched"
-        md-sort="title"
-        md-sort-order="asc"
-        md-card
-        md-fixed-header
-      >
+    <div id="sustainable-table">
+      <md-table v-model="searched" md-sort="title" md-sort-order="asc" md-card>
         <md-table-toolbar>
           <div class="md-toolbar-section-start">
             <h1 class="md-title">Sustainable Courses</h1>
@@ -110,12 +105,6 @@
           }}</md-table-cell>
         </md-table-row>
       </md-table>
-
-      <!-- <md-button class="md-primary md-raised" @click="showDialog = true"
-      >Show Details</md-button
-    >
-    <p>Selected:</p>
-    {{ selected }} -->
 
       <div>
         <md-dialog :md-active.sync="showDialog">
@@ -265,6 +254,10 @@ export default {
 <style lang="scss" scoped>
 .md-field {
   max-width: 300px;
+}
+
+.md-table-cell {
+  max-width: 400px;
 }
 
 .sdg {
