@@ -52,4 +52,11 @@
   font-weight: bold;
   color: white ;
 }
+
+Html, body {
+  background-image: url('assets/bridge.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 </style>
