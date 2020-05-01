@@ -26,7 +26,7 @@
   (
     primary: md-get-palette-color(green, 300),
     // The primary color of your application
-      accent: md-get-palette-color(cyan, 200) // The accent or secondary color,,
+    accent: md-get-palette-color(cyan, 200) // The accent or secondary color,,
   )
 );
 
@@ -42,6 +42,7 @@
   display: flex;
   margin: 3% auto;
   justify-content: center;
+  max-width: 1200px;
 }
 // #nav a {
 //   font-weight: bold;

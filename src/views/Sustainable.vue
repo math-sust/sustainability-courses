@@ -18,14 +18,24 @@
             :md-close-on-click="false"
             :md-close-on-select="false"
           >
-            <md-button class="md-raised md-primary" md-menu-trigger>SDG Filter</md-button>
+            <md-button class="md-raised md-primary" md-menu-trigger
+              >SDG Filter</md-button
+            >
             <md-menu-content>
               <p>Sustainable Development Goals</p>
 
               <div class="sdgs">
                 <div class="sdgs">
-                  <md-button v-on:click="selectAllSDG" class="md-dense md-primary">Select All</md-button>
-                  <md-button v-on:click="selectNoneSDG" class="md-dense md-primary">Select None</md-button>
+                  <md-button
+                    v-on:click="selectAllSDG"
+                    class="md-dense md-primary"
+                    >Select All</md-button
+                  >
+                  <md-button
+                    v-on:click="selectNoneSDG"
+                    class="md-dense md-primary"
+                    >Select None</md-button
+                  >
                   <div
                     v-for="SDG in sdgs"
                     :key="SDG.num"
@@ -37,7 +47,7 @@
                         v-bind:src="SDG.src"
                         v-bind:class="[
                           '' + SDG.num,
-                          SDG.active ? `active` : `inactive`
+                          SDG.active ? `active` : `inactive`,
                         ]"
                       />
                     </div>
@@ -65,7 +75,11 @@
       >
       </md-table-empty-state>
 
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
+      <md-table-row
+        slot="md-table-row"
+        slot-scope="{ item }"
+        @click="showDetails(item)"
+      >
         <md-table-cell md-label="Title" md-sort-by="title">{{
           item.title
         }}</md-table-cell>
@@ -83,18 +97,65 @@
         }}</md-table-cell>
       </md-table-row>
     </md-table>
+
+    <!-- <md-button class="md-primary md-raised" @click="showDialog = true"
+      >Show Details</md-button
+    >
+    <p>Selected:</p>
+    {{ selected }} -->
+
+    <div>
+      <md-dialog :md-active.sync="showDialog">
+        <md-dialog-title>Course Details</md-dialog-title>
+
+        <md-tabs md-dynamic-height v-if="selected">
+          <md-tab md-label="General">
+            <p>
+              {{ selected.title }}
+            </p>
+          </md-tab>
+
+          <md-tab md-label="SDGs">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
+              mollitia dolorum dolores quae commodi impedit possimus qui, atque
+              at voluptates cupiditate. Neque quae culpa suscipit praesentium
+              inventore ducimus ipsa aut.
+            </p>
+          </md-tab>
+
+          <md-tab md-label="Details">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
+              mollitia dolorum dolores quae commodi impedit possimus qui, atque
+              at voluptates cupiditate. Neque quae culpa suscipit praesentium
+              inventore ducimus ipsa aut.
+            </p>
+          </md-tab>
+        </md-tabs>
+
+        <md-dialog-actions>
+          <md-button class="md-primary" @click="showDialog = false"
+            >Close</md-button
+          >
+          <!-- <md-button class="md-primary" @click="showDialog = false"
+            >Save</md-button
+          > -->
+        </md-dialog-actions>
+      </md-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 import course_list from "@/assets/courses.json";
-const toLower = text => {
+const toLower = (text) => {
   return text.toString().toLowerCase();
 };
 
 const searchByName = (items, term) => {
   if (term) {
-    return items.filter(item => toLower(item.title).includes(toLower(term)));
+    return items.filter((item) => toLower(item.title).includes(toLower(term)));
   }
 
   return items;
@@ -106,7 +167,7 @@ const SDGS = () => {
     ret.push({
       num: i,
       src: require("../assets/sdgs/E-WEB-Goal-" + i + ".png"),
-      active: 1
+      active: 1,
     });
   }
   return ret;
@@ -115,6 +176,8 @@ const SDGS = () => {
 export default {
   name: "Sustainable",
   data: () => ({
+    showDialog: false,
+    selected: null,
     search: null,
     searched: [],
     courses: course_list,
@@ -130,18 +193,18 @@ export default {
         "description": "This course covers sustainability topics such as..."
     },
      */
-    sdgs: SDGS()
+    sdgs: SDGS(),
   }),
   methods: {
     searchOnTable() {
       this.searched = searchByName(this.courses, this.search);
     },
     selectAllSDG() {
-      this.sdgs.forEach(sdg => (sdg.active = 1));
+      this.sdgs.forEach((sdg) => (sdg.active = 1));
     },
     selectNoneSDG() {
       console.log("TODO");
-      this.sdgs.forEach(sdg => (sdg.active = 0));
+      this.sdgs.forEach((sdg) => (sdg.active = 0));
     },
     toggleSDG(num) {
       console.log(num - 1);
@@ -155,11 +218,15 @@ export default {
       }
 
       console.log(this.$refs.sdgz[num - 1]);
-    }
+    },
+    showDetails(item) {
+      this.selected = item;
+      this.showDialog = true;
+    },
   },
   created() {
     this.searched = this.courses;
-  }
+  },
 };
 </script>
 
@@ -168,8 +235,6 @@ export default {
   max-width: 300px;
 }
 
-intro {
-}
 .sdg {
   float: left;
   width: 33.33%;
@@ -205,4 +270,7 @@ table {
   width: 800px;
 }
 
+.md-table-row {
+  cursor: pointer;
+}
 </style>
