@@ -31,44 +31,14 @@
               md-direction="bottom-end"
               md-size="auto"
               :md-close-on-click="false"
-              :md-close-on-select="false"
-            >
-              <md-button class="md-raised md-primary" md-menu-trigger
-                >SDG Filter</md-button
-              >
+              :md-close-on-select="false">
+              <md-button class="md-raised md-primary" md-menu-trigger>Filter by Subject</md-button>
               <md-menu-content>
-                <p>Sustainable Development Goals</p>
-
-                <div class="sdgs">
-                  <div class="sdgs">
-                    <md-button
-                      v-on:click="selectAllSDG"
-                      class="md-dense md-primary"
-                      >Select All</md-button
-                    >
-                    <md-button
-                      v-on:click="selectNoneSDG"
-                      class="md-dense md-primary"
-                      >Select None</md-button
-                    >
-                    <div
-                      v-for="SDG in sdgs"
-                      :key="SDG.num"
-                      v-on:click="toggleSDG(SDG.num)"
-                    >
-                      <div class="sdg" width="33%">
-                        <img
-                          ref="sdgz"
-                          v-bind:src="SDG.src"
-                          v-bind:class="[
-                            '' + SDG.num,
-                            SDG.active ? `active` : `inactive`,
-                          ]"
-                        />
-                      </div>
-                    </div>
+                  <input type="checkbox" id="allHumanities" ><label for="allHumanities">Humanities</label>
+                  <input type="checkbox" id="allSocialScience" ><label for="allSocialScience">Social Science</label>
+                  <div v-for="subject in subjects" :key="subject.name">
+                      <input type="checkbox" ><label>{{subject.name}}</label>
                   </div>
-                </div>
               </md-menu-content>
             </md-menu>
           </div>
@@ -119,19 +89,14 @@
 
             <md-tab md-label="SDGs">
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
-                mollitia dolorum dolores quae commodi impedit possimus qui,
-                atque at voluptates cupiditate. Neque quae culpa suscipit
-                praesentium inventore ducimus ipsa aut.
+                  {{selected.SDGs}}
+
               </p>
             </md-tab>
 
             <md-tab md-label="Details">
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
-                mollitia dolorum dolores quae commodi impedit possimus qui,
-                atque at voluptates cupiditate. Neque quae culpa suscipit
-                praesentium inventore ducimus ipsa aut.
+                    {{selected.Description}}
               </p>
             </md-tab>
           </md-tabs>
@@ -164,18 +129,21 @@ const searchByName = (items, term, sdgs) => {
     );
   }
   var activeSDGs = [];
-  console.log(sdgs);
+  //console.log(sdgs);
   for (var i = 0; i < 17; i++) {
     if (sdgs[i].active == 1) {
       activeSDGs.push(i + 1);
     }
   }
-  console.log("active SDGS");
-  console.log(activeSDGs);
-  console.log(results[0].SDGs.some((r) => activeSDGs.indexOf(r) >= 0));
+  //console.log("active SDGS");
+  //console.log(activeSDGs);
+  //console.log(results[0].SDGs.some((r) => activeSDGs.indexOf(r) >= 0));
   results = results.filter((r) =>
     r.SDGs.some((r) => activeSDGs.indexOf(r) >= 0)
   );
+
+  console.log(SocialScience);
+  console.log(Humanities);
 
   return results;
 };
@@ -191,6 +159,18 @@ const SDGS = () => {
   }
   return ret;
 };
+
+const getSubjects = (courses) => {
+    var ret = [];
+    courses.forEach( c => !ret.includes(c.Subject) && ret.push({name: c.Subject, active: true}));
+    return ret.sort();
+}
+
+
+const SocialScience = ["ECON", "ENV", "GOV", "PSY", "SD", "SOC", "SS", "STS" ];
+const Humanities = ["AR", "EN", "TH", "MU", "AB", "CN", "EN", "GN", "SP", "WR", "RH", "HI", "HU", "INTL", "PY", "RE"];
+
+
 
 export default {
   name: "Sustainable",
@@ -213,6 +193,10 @@ export default {
     },
      */
     sdgs: SDGS(),
+     humanities: true,
+     socialScience: true,
+     subjects: getSubjects(course_list)
+
   }),
   methods: {
     searchOnTable() {
