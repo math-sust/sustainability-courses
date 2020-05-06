@@ -1,26 +1,36 @@
 <template>
     <div class="sustainable">
         <h1>Sustainability-Related Courses</h1>
+
+
         <div id="filters" width="30%">
-            <div class="sdgs">
-                <md-button v-on:click="selectAllSDG" class="md-raised md-primary"
-                >Select All
-                </md-button
-                >
-                <md-button v-on:click="selectNoneSDG" class="md-raised md-primary"
-                >Select None
-                </md-button
-                >
-                <div v-for="SDG in sdgs" :key="SDG.num" v-on:click="toggleSDG(SDG.num)">
-                    <div class="sdg" width="50%">
-                        <img
-                                ref="sdgz"
-                                v-bind:src="SDG.src"
-                                v-bind:class="['' + SDG.num, SDG.active ? `active` : `inactive`]"
-                        />
+            <md-tabs class="md-primary" md-alignment="centered" >
+                <md-tab id="tab-sdg" md-label="Sustainable Development Goals">
+                    <div class="sdgs">
+                        <md-button v-on:click="selectAllSDG" class="md-raised md-primary"
+                        >Select All
+                        </md-button
+                        >
+                        <md-button v-on:click="selectNoneSDG" class="md-raised md-primary"
+                        >Select None
+                        </md-button
+                        >
+                        <div v-for="SDG in sdgs" :key="SDG.num" v-on:click="toggleSDG(SDG.num)">
+                            <div class="sdg" width="50%">
+                                <img
+                                        ref="sdgz"
+                                        v-bind:src="SDG.src"
+                                        v-bind:class="['' + SDG.num, SDG.active ? `active` : `inactive`]"
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+
+                </md-tab>
+                <md-tab id="tab-subjects" md-label="Subjects"></md-tab>
+            </md-tabs>
+
+
         </div>
         <div id="sustainable-table">
             <md-table v-model="searched" md-sort="title" md-sort-order="asc" md-card>
