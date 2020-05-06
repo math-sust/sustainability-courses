@@ -211,7 +211,7 @@ const searchByName = (items, term, sdgs, subjects) => {
 
   results = results.filter(
     (r) =>
-      r.SDGs.some((r) => activeSDGs.indexOf(r) >= 0) && subjectDict[r.Subject]
+      r.SDGs.some((r) => activeSDGs.indexOf(r) >= 0) && subjectDict[r.Subject] == "true"
   );
 
   return results;
