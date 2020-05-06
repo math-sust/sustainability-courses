@@ -12,18 +12,27 @@
     <div id="faculty-content" class="md-elevation-2">
       <h2>Faculty Resources</h2>
       <md-tabs class="md-transparent" md-alignment="fixed">
-        <md-tab id="tab-websites" md-label="Websites">
-          TODO for websites
+        <md-tab id="tab-websites" md-label="Our Findings">
+          We also wanted to provide faculty with information regarding student interest in learning about specific
+          Sustainable Development Goals, and their desired delivery methods.
+          We surveyed 101 students across 11 sustainability themed courses and received the following results.
+
+
         </md-tab>
-        <md-tab id="tab-books" md-label="Books">
-          TODO for books
+        <md-tab id="tab-books" md-label="Sustainability Resources">
+          Here are some of the resources other faculty sent us which may help one teach sustainability.
+          <md-table>
+            <md-table-row>
+              <md-table-head>Title</md-table-head>
+              <md-table-head>Description</md-table-head>
+            </md-table-row>
+            <md-table-row>
+              <md-table-head>Engineering Unleashed</md-table-head>
+              <md-table-head>A website with </md-table-head>
+            </md-table-row>
+          </md-table>
         </md-tab>
-        <md-tab id="tab-media" md-label="Media">
-          TODO for media
-        </md-tab>
-        <md-tab id="tab-others" md-label="Others">
-          TODO for others
-        </md-tab>
+
       </md-tabs>
     </div>
   </div>
