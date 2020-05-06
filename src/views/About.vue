@@ -1,11 +1,9 @@
 <template>
   <div class="about">
-    <div class="project">
-      <div class="imgleft" >
+    <div class="container">
 
-        <img     style="vertical-align: middle" src="../assets/foisie.jpg" />
-      </div>
-      <div class="textright" >
+      <img class="container__imageL"  src="../assets/wpibuild.jpg" />
+      <div class="container__text" >
         <h1>About the Project</h1>
         <p>
           While humanity at large has made great strides in various fields such as medicine, education and life expectancy,
@@ -35,11 +33,9 @@
       </div>
 
     </div>
-    <div class="sdgs">
-      <div class="imgleft">
-        <img src="../assets/foisie.jpg" />
-      </div>
-      <div class="textright">
+    <div class="container">
+        <img class="container__imageR" src="../assets/sdglogo.png" />
+      <div class="container__text">
     <h1>About the Sustainable Development Goals</h1>
     <p>
       We chose to categorize the sustainability themed courses further according to the United Nations’ Sustainable
@@ -56,50 +52,50 @@
     </p>
       </div>
       </div>
-    <div class="us">
-      <div class="textleft">
-      <h1>About Us</h1>
+    <div class="container">
+      <img class="container__imageL" src="../assets/team.png" />
 
-      <p>
-        Our team is composed of three WPI undergraduate students: Emily Baker, Rui Huang and Akash Shaji.
-        We completed this project in order to fulfill our Interactive Qualifying Project Requirement.
+      <div class="container__text">
+        <h1>About Us</h1>
 
-      </p>
+        <p>
+          Our team is composed of three WPI undergraduate students: Emily Baker, Rui Huang and Akash Shaji.
+          We completed this project in order to fulfill our Interactive Qualifying Project Requirement.
+
+        </p>
       </div>
-      <div class="imgright">
-        <img src="http://dummyimage.com/200x200/f0f/fff" />
-      </div>
+
     </div>
 
   </div>
 </template>
 <style lang="scss" scoped>
 
+  .container {
+    padding: 20px 40px 40px;
+    /*max-width: 600px;*/
+    &__imageL {
+      width: 350px;
+      margin: 15px 15px 15px 0;
+      float: left;
+      border-radius: 25px;
+
+    }
+    &__imageR {
+      width: 350px;
+      margin: 15px 15px 15px 0;
+      float: right;
+    }
+    &__text {
+      display: inline;
+    }
+  }
+
+
  p{
    font-size: 18px;
    text-align: left;
    text-indent : 5em;
- }
-
-  .imgleft{
-    float: left;
-    vertical-align: middle;
-
-  }
-
-  .imgright{
-    float: right;
-    vertical-align: middle;
-  }
-
-  .textright{
-    margin-left: 320px;
-    vertical-align: middle;
-
-  }
- .textleft{
-   margin-right: 200px;
-
  }
 
 </style>
