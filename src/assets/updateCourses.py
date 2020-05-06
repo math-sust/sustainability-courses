@@ -14,10 +14,10 @@ for row in range(1, ws.nrows):
 
     for col in range(ws.ncols):
         if(header[col] == "SDGs"):
-            if(ws.cell_value(row,col) != 0):
+            if(ws.cell_value(row,col) != 0 and "," in str(ws.cell_value(row,col))):
                 elm[header[col]]=[int(x) for x in ws.cell_value(row,col).split(",")]
             else:
-                elm[header[col]]= []
+                elm[header[col]]= [ws.cell_value(row,col)]
         else:
             elm[header[col]]=ws.cell_value(row,col)
     data.append(elm)

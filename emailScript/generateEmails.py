@@ -1,10 +1,13 @@
 import csv
 
+'''
+This is a script we wrote to generate our initial emails to professors
+'''
+
 
 emailText = open("email.txt","r").read()
 coursesText = open("profs.csv")
 coursesParsed = csv.reader(coursesText)
-#print(emailText.read() % ("Test","test2"))
 
 for row in coursesParsed:
     fullName = row[1][:-4]
