@@ -130,7 +130,7 @@
             </md-table-row>
           </md-table>
 
-          <div>
+          <div id="dialog-box">
             <md-dialog :md-active.sync="showDialog">
               <md-dialog-title>Course Details</md-dialog-title>
 
@@ -142,9 +142,21 @@
                 </md-tab>
 
                 <md-tab md-label="SDGs">
-                  <p>
-                    {{ selected.SDGs }}
-                  </p>
+                  <div
+                    v-for="(item, index) in selected.SDGs"
+                    :key="index"
+                    style="display: inline-flex;"
+                    class="img-sm"
+                  >
+                    <img
+                      v-bind:src="
+                        require('../assets/sdgs/E-WEB-Goal-' + item + '.png')
+                      "
+                    />
+                  </div>
+                  <div v-if="selected.IsEstimate">
+                    *The Sustainable Development Goals (SDGs) listed for this course is an estimation
+                  </div>
                 </md-tab>
 
                 <md-tab md-label="Details">
@@ -158,9 +170,6 @@
                 <md-button class="md-primary" @click="showDialog = false"
                   >Close
                 </md-button>
-                <!-- <md-button class="md-primary" @click="showDialog = false"
-                        >Save</md-button
-                      > -->
               </md-dialog-actions>
             </md-dialog>
           </div>
@@ -384,6 +393,16 @@ export default {
   min-height: 100vh;
 }
 
+.md-tab {
+  min-height: 400px;
+}
+
+.img-sm {
+  width: 120px;
+  height: 120px;
+  margin: 5px;
+}
+
 .sdg {
   float: left;
   width: 33%;
@@ -398,30 +417,12 @@ export default {
   filter: brightness(50%);
 }
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.md-app {
-  max-height: 400px;
-  border: 1px solid rgba(#000, 0.12);
-}
-
-.md-drawer {
-  width: 230px;
-  max-width: calc(100vw - 125px);
-}
-
-table {
-  width: 800px;
-}
-
 #search-bar {
-  // min-width: 200px;
   max-width: 300px;
+}
+
+#sustainable-table {
+  text-align: left;
 }
 
 .md-table-row {
