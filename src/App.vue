@@ -2,14 +2,14 @@
   <div id="app">
     <div id="nav">
       <md-tabs md-sync-route class="md-primary" md-alignment="centered">
-        <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
-        <md-tab id="tab-about" md-label="About" to="/about"></md-tab>
+        <md-tab id="tab-home" md-label="Home Page" to="/" exact></md-tab>
+        <md-tab id="tab-about" md-label="About The Project" to="/about"></md-tab>
         <md-tab
           id="tab-sustainable"
-          md-label="Sustainable Courses"
+          md-label="Sustainablility Themed Courses"
           to="/sustainable"
         ></md-tab>
-        <md-tab id="tab-faculty" md-label="Faculty Page" to="/faculty"></md-tab>
+        <md-tab id="tab-faculty" md-label="Faculty Resources Page" to="/faculty"></md-tab>
       </md-tabs>
     </div>
     <div id="content" class="md-elevation-10">

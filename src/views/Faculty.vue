@@ -1,6 +1,6 @@
 <template>
   <div class="faculty">
-    <h1>Here is where we'd store information for faculty</h1>
+    <h1>Faculty Resources Page</h1>
     <p>
       If you would like to contribute to have sustainability-related topics in your course, you may find the following links and information helpful:
     </p>
