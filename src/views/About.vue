@@ -1,7 +1,10 @@
 <template>
   <div class="about">
     <div class="container">
+<<<<<<< HEAD
 
+=======
+>>>>>>> d67bbb6301077ef811f95b2dd57d19efa5c8aa21
       <img class="container__imageL"  src="../assets/wpibuild.jpg" />
       <div class="container__text" >
         <h1>About the Project</h1>
