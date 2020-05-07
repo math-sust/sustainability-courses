@@ -2,7 +2,7 @@
 
 This is the code repository for the WPI Sustainability Resources Platform website (final deliverable of WPI D20 IQP), developed by Rui Huang, Akash Shaji and Emily Baker. 
 
-You can check out the website [Here](ryc1x.github.io/sustainable-studies/)
+You can check out a snapshot of the website [here] (ryc1x.github.io/sustainable-studies/). For the most up-to-date version we reccomend contacting WPI's office of sustainability. 
 
 The repository consists of a Vue.js project, which contains the necessary code for generating the website. If you plan to maintain the development, you may find the following instructions to be helpful.  
 
@@ -11,8 +11,8 @@ The repository consists of a Vue.js project, which contains the necessary code f
 This project is developed with `Vue` 2.6 and managed with `NPM`.  
 
 - Setup
+- Updating the Curricula Listing
 - Deployment
-- Development
 
 ### Setup
 
@@ -45,6 +45,14 @@ npm run build
 (This command will generate a `dist` file under the root directory)
 
 
+### Updating the Curricula Listing
+
+In order to update the curricula listing, all one has to do is modify `CourseData.xlsx` and run the following command. This requires having Python 3 installed. 
+
+```
+python3 updateCourses.py
+```
+
 
 ### Deployment
 
@@ -64,9 +72,6 @@ Then navigate to your GitHub Pages site, the website should be deployed successf
 
 
 
-### Development
-
-TODO
 
 
 
