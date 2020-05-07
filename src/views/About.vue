@@ -3,7 +3,7 @@
     <div class="project">
       <div class="imgleft" >
 
-        <img     style="vertical-align: middle" src="../assets/foisie.jpg" />
+        <img style="vertical-align: middle" src="../assets/foisie.jpg" />
       </div>
       <div class="textright" >
         <h1>About the Project</h1>

@@ -18,6 +18,15 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'app',
+  created(){
+    document.title = 'WPI Sustainablility Platform'
+  }
+}
+</script>
+
 <style lang="scss">
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 

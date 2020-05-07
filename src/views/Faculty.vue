@@ -45,9 +45,9 @@ export default {
 </script>
 
 <style scoped>
-  /* .faculty {
+  .faculty {
     max-width: 1000px;
-  } */
+  }
   #faculty-content{
     margin-top: 20px;
     background-color: white;
