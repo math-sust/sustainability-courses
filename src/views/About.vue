@@ -1,15 +1,8 @@
 <template>
   <div class="about">
     <div class="container">
-
-<<<<<<< HEAD
-        <img style="vertical-align: middle" src="../assets/foisie.jpg" />
-      </div>
-      <div class="textright" >
-=======
       <img class="container__imageL"  src="../assets/wpibuild.jpg" />
       <div class="container__text" >
->>>>>>> c6577978e5893fa81f0f15d58cee050b9a45de4b
         <h1>About the Project</h1>
         <p>
           While humanity at large has made great strides in various fields such as medicine, education and life expectancy,
