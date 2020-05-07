@@ -2,7 +2,7 @@
 
 This is the code repository for the WPI Sustainability Resources Platform website (final deliverable of WPI D20 IQP), developed by Rui Huang, Akash Shaji and Emily Baker. 
 
-You can check out a snapshot of the website [here] (ryc1x.github.io/sustainable-studies/). For the most up-to-date version we reccomend contacting WPI's office of sustainability. 
+You can check out a snapshot of the website [here](ryc1x.github.io/sustainable-studies/). For the most up-to-date version we reccomend contacting WPI's office of sustainability. 
 
 The repository consists of a Vue.js project, which contains the necessary code for generating the website. If you plan to maintain the development, you may find the following instructions to be helpful.  
 
