@@ -1,6 +1,10 @@
 <template>
   <div class="sustainable">
     <h1>Sustainability Themed Courses</h1>
+    <p>This page contains a listing of WPI's sustainability themed courses. You can search for a specific course using the
+      search bar on the right, or use the 'Course Filters' column to search for specific sustainability topics or
+    subjects. Please note: by default all filters are selected, so in order to search for a specific topic or subject
+    one should hit deselect all topics and then select the one they are interested in. </p>
     <div
       class="md-layout md-gutter md-alignment-top-center"
       id="sustainable-layout"
@@ -11,7 +15,7 @@
           <h2>Course Filters</h2>
           <md-tabs class="md-transparent" md-alignment="fixed">
             <!-- SDGs -->
-            <md-tab id="tab-sdgs" md-label="SDGs">
+            <md-tab id="tab-sdgs" md-label="Sustainability Topics">
               <div class="sdgs">
                 <md-button
                   v-on:click="selectAllSDG"
@@ -132,12 +136,12 @@
 
           <div id="dialog-box">
             <md-dialog :md-active.sync="showDialog">
-              <md-dialog-title>Course Details</md-dialog-title>
+              <md-dialog-title v-if="selected">{{ selected.Name }}</md-dialog-title>
 
               <md-tabs md-dynamic-height v-if="selected">
-                <md-tab md-label="General">
+                <md-tab md-label="Details">
                   <p>
-                    {{ selected.Name }}
+                    {{ selected.Description }}
                   </p>
                 </md-tab>
 
@@ -159,11 +163,7 @@
                   </div>
                 </md-tab>
 
-                <md-tab md-label="Details">
-                  <p>
-                    {{ selected.Description }}
-                  </p>
-                </md-tab>
+
               </md-tabs>
 
               <md-dialog-actions>
