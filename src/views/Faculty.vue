@@ -2,8 +2,9 @@
   <div class="faculty">
     <h1>Faculty Resources Page</h1>
     <p>
-      If you would like to contribute to have sustainability-related topics in your course, you may find the following links and information helpful:
+      If you would like to incorporate sustainability in the classroom, you may find the following resources helpful:
     </p>
+
 
     <div>
       <md-button href="https://www.wpi.edu/offices/sustainability" class="md-raised md-primary">WPI Office of sustainablity</md-button>
@@ -11,17 +12,21 @@
     </div>
     <div id="faculty-content" class="md-elevation-2">
       <h2>Faculty Resources</h2>
-      <md-tabs class="md-transparent" md-alignment="fixed">
+      <md-tabs class="md-transparent" md-alignment="fixed" style="min-height: 80vh;">
         <md-tab id="tab-websites" md-label="Our Findings">
           We also wanted to provide faculty with information regarding student interest in learning about specific
           Sustainable Development Goals, and their desired delivery methods.
           We surveyed 101 students across 11 sustainability themed courses and received the following results.
-
+          To read more about our findings and our methodology, see our paper (in 'About the Project').
+          <img src="../assets/studentinterestsdg.jpg">
+          <br><br>
+          <img src="../assets/studentinterestdelivery.jpg">
+  <p></p>
 
         </md-tab>
-        <md-tab id="tab-books" md-label="Sustainability Resources">
-          Here are some of the resources other faculty sent us which may help one teach sustainability.
-          <md-table>
+        <md-tab id="tab-books" md-label="Sustainability Resources" >
+          Here are some of the resources other faculty sent us which may help incorporate sustainability in the classroom.
+          <md-table style="overflow-wrap: normal">
             <md-table-row>
               <md-table-head>Title</md-table-head>
               <md-table-head>Description</md-table-head>
@@ -30,6 +35,16 @@
               <md-table-head>Engineering Unleashed</md-table-head>
               <md-table-head>A website with </md-table-head>
             </md-table-row>
+            <md-table-row>
+              <md-table-head><a href="https://hub.aashe.org/browse/publication/15675/A-Guide-for-Applied-Sustainability-Learning-Projects-Advancing-sustainability-outcomes-on-campus-and-in-the-community">
+                A Guide for Applied Sustainability Learning Projects: Advancing sustainability outcomes on campus and in the community
+              </a></md-table-head>
+              <md-table-head>This guide provides a step-by-step framework for how a new or existing applied learning for sustainability program can be systematically designed, built and scaled
+              </md-table-head>
+            </md-table-row>
+
+
+
           </md-table>
         </md-tab>
 
@@ -52,5 +67,9 @@ export default {
     margin-top: 20px;
     background-color: white;
     padding: 20px;
+  }
+
+  .md-tab {
+    min-height: 800px;
   }
 </style>

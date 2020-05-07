@@ -28,7 +28,7 @@
           It allows faculty to have easy access to ways sustainability can be integrated in curriculum, potential help for
           doing so, and the student interest in sustainability topics and delivery methods.
         </p>
-        <p>To read more about our project visit see (link will be inserted once our paper is published).</p>
+        <p>To read more about our project visit see (link will be inserted once our report is published).</p>
       </div>
 
     </div>

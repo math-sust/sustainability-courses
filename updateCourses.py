@@ -1,7 +1,7 @@
 import xlrd
 import json
 
-wb = xlrd.open_workbook("../../CourseData.xlsx")
+wb = xlrd.open_workbook("CourseData.xlsx")
 ws = wb.sheet_by_index(0)
 header = [] # The row where we stock the name of the column
 for col in range(ws.ncols):
@@ -24,5 +24,5 @@ for row in range(1, ws.nrows):
 
 
 #saving to file
-with open('courses.json', 'w') as file:
+with open('src/assets/courses.json', 'w') as file:
     file.write(json.dumps(data))

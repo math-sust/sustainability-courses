@@ -300,7 +300,6 @@ export default {
   }),
   methods: {
     searchOnTable() {
-      console.log("searchin");
       this.searched = searchByName(
         this.courses,
         this.search,
@@ -339,10 +338,22 @@ export default {
         this.ALLActive = 0;
         this.ALLText = "Select All";
         this.subjects.forEach((s) => (s.active = "false"));
+        if(this.HUActive){
+            this.swapHU();
+        }
+        if(this.SSActive){
+            this.swapSS();
+        }
       } else {
         this.ALLActive = 1;
         this.ALLText = "De-Select All";
         this.subjects.forEach((s) => (s.active = "true"));
+          if(!this.HUActive){
+              this.swapHU();
+          }
+          if(!this.SSActive){
+              this.swapSS();
+          }
       }
       this.searchOnTable();
     },
