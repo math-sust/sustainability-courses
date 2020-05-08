@@ -3,13 +3,21 @@
     <div id="nav">
       <md-tabs md-sync-route class="md-primary" md-alignment="centered">
         <md-tab id="tab-home" md-label="Home Page" to="/" exact></md-tab>
-        <md-tab id="tab-about" md-label="About The Project" to="/about"></md-tab>
+        <md-tab
+          id="tab-about"
+          md-label="About The Project"
+          to="/about"
+        ></md-tab>
         <md-tab
           id="tab-sustainable"
           md-label="Sustainablility Themed Courses"
           to="/sustainable"
         ></md-tab>
-        <md-tab id="tab-faculty" md-label="Faculty Resources Page" to="/faculty"></md-tab>
+        <md-tab
+          id="tab-faculty"
+          md-label="Faculty Resources Page"
+          to="/faculty"
+        ></md-tab>
       </md-tabs>
     </div>
     <div id="content" class="md-elevation-10">
@@ -20,11 +28,11 @@
 
 <script>
 export default {
-  name: 'app',
-  created(){
-    document.title = 'WPI Sustainablility Platform'
-  }
-}
+  name: "app",
+  created() {
+    document.title = "WPI Sustainablility Platform";
+  },
+};
 </script>
 
 <style lang="scss">
@@ -35,7 +43,8 @@ export default {
   (
     primary: md-get-palette-color(green, 300),
     // The primary color of your application
-    accent: md-get-palette-color(cyan, 200) // The accent or secondary color,,
+      accent: md-get-palette-color(cyan, 200)
+      // The accent or secondary color
   )
 );
 
@@ -57,7 +66,7 @@ export default {
   width: 80vw;
   min-height: 80vh;
   padding: 20px;
-  background-color: #F6F8F4;
+  background-color: #f6f8f4;
   opacity: 0.95;
   border-radius: 20px;
 }
@@ -67,10 +76,10 @@ export default {
 // }
 #nav a.router-link-exact-active {
   font-weight: bold;
-  color: white ;
+  color: white;
 }
 body {
-  background-image: url('assets/bridge.jpg');
+  background-image: url("assets/bridge.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
