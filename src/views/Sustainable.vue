@@ -1,10 +1,14 @@
 <template>
   <div class="sustainable">
     <h1>Sustainability Themed Courses</h1>
-    <p>This page contains a listing of WPI's sustainability themed courses. You can search for a specific course using the
-      search bar on the right, or use the 'Course Filters' column to search for specific sustainability topics or
-    subjects. Please note: by default all filters are selected, so in order to search for a specific topic or subject
-    one should hit deselect all topics and then select the one they are interested in. </p>
+    <p>
+      This page contains a listing of WPI's sustainability themed courses. You
+      can search for a specific course using the search bar on the right, or use
+      the 'Course Filters' column to search for specific sustainability topics
+      or subjects. Please note: by default all filters are selected, so in order
+      to search for a specific topic or subject one should hit deselect all
+      topics and then select the one they are interested in.
+    </p>
     <div
       class="md-layout md-gutter md-alignment-top-center"
       id="sustainable-layout"
@@ -136,7 +140,9 @@
 
           <div id="dialog-box">
             <md-dialog :md-active.sync="showDialog">
-              <md-dialog-title v-if="selected">{{ selected.Name }}</md-dialog-title>
+              <md-dialog-title v-if="selected">{{
+                selected.Name
+              }}</md-dialog-title>
 
               <md-tabs md-dynamic-height v-if="selected">
                 <md-tab md-label="Details">
@@ -159,11 +165,10 @@
                     />
                   </div>
                   <div v-if="selected.IsEstimate">
-                    *The Sustainable Development Goals (SDGs) listed for this course is an estimation
+                    *The Sustainable Development Goals (SDGs) listed for this
+                    course is an estimation
                   </div>
                 </md-tab>
-
-
               </md-tabs>
 
               <md-dialog-actions>
@@ -175,6 +180,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="go-top" v-on:click="goTop()" style="buttom: 40px;">
+      <md-button class="md-raised md-primary">Go Top</md-button>
     </div>
   </div>
 </template>
@@ -211,7 +219,8 @@ const searchByName = (items, term, sdgs, subjects) => {
 
   results = results.filter(
     (r) =>
-      r.SDGs.some((r) => activeSDGs.indexOf(r) >= 0) && subjectDict[r.Subject] == "true"
+      r.SDGs.some((r) => activeSDGs.indexOf(r) >= 0) &&
+      subjectDict[r.Subject] == "true"
   );
 
   return results;
@@ -338,22 +347,22 @@ export default {
         this.ALLActive = 0;
         this.ALLText = "Select All";
         this.subjects.forEach((s) => (s.active = "false"));
-        if(this.HUActive){
-            this.swapHU();
+        if (this.HUActive) {
+          this.swapHU();
         }
-        if(this.SSActive){
-            this.swapSS();
+        if (this.SSActive) {
+          this.swapSS();
         }
       } else {
         this.ALLActive = 1;
         this.ALLText = "De-Select All";
         this.subjects.forEach((s) => (s.active = "true"));
-          if(!this.HUActive){
-              this.swapHU();
-          }
-          if(!this.SSActive){
-              this.swapSS();
-          }
+        if (!this.HUActive) {
+          this.swapHU();
+        }
+        if (!this.SSActive) {
+          this.swapSS();
+        }
       }
       this.searchOnTable();
     },
@@ -381,6 +390,13 @@ export default {
         setSubjectState(this.subjects, "true", SocialScience);
       }
       this.searchOnTable();
+    },
+    goTop() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     },
   },
   created() {
@@ -440,5 +456,10 @@ export default {
 
 .md-table-row {
   cursor: pointer;
+}
+#go-top {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
 }
 </style>
