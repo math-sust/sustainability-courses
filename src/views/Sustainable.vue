@@ -197,9 +197,13 @@ const toLower = (text) => {
 const searchByName = (items, term, sdgs, subjects) => {
   var results = items;
   if (term) {
-    results = items.filter((item) =>
-      toLower(item.Name).includes(toLower(term)) || toLower(item.Subject).includes(toLower(term)) || toLower(item.Number).includes(toLower(term)) || toLower(item.Description).includes(toLower(term))
-  );
+    results = items.filter(
+      (item) =>
+        toLower(item.Name).includes(toLower(term)) ||
+        toLower(item.Subject).includes(toLower(term)) ||
+        toLower(item.Number).includes(toLower(term)) ||
+        toLower(item.Description).includes(toLower(term))
+    );
   }
   var activeSDGs = [];
   //console.log(sdgs);
@@ -434,8 +438,10 @@ export default {
   float: left;
   width: 33%;
   padding: 5px;
-    cursor: pointer;
+}
 
+.sdg img {
+  cursor: pointer;
 }
 
 .active {
@@ -458,6 +464,7 @@ export default {
   cursor: pointer;
 }
 #go-top {
+  z-index: 1;
   position: fixed;
   bottom: 20px;
   right: 30px;
