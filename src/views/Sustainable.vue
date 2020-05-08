@@ -425,12 +425,11 @@ export default {
 }
 
 .md-tab {
-  min-height: 400px;
+  min-height: 450px;
 }
 
 .img-sm {
-  width: 120px;
-  height: 120px;
+  width: 14%;
   margin: 5px;
 }
 
