@@ -73,10 +73,18 @@
         <h1>About Us</h1>
 
         <p>
-          Our team is composed of three WPI undergraduate students: Emily Baker,
-          Rui Huang and Akash Shaji. We completed this project in order to
-          fulfill our Interactive Qualifying Project Requirement.
+          Our team is composed of three WPI undergraduate students: Emily Baker, Rui Huang and Akash Shaji.
+          We completed this project in order to fulfill our Interactive Qualifying Project Requirement (IQP). 
+          Our team was scheduled to complete our IQP at the University of Worcester in Worcester, UK, 
+          but due to COVID-19 we were required to do our project remotely instead. This still ended up being a 
+          rewarding experience as we got to spend this term focused on solving an issue much closer to home. 
+          
         </p>
+<p>
+
+</p>
+
+	
       </div>
     </div>
   </div>
