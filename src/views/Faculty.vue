@@ -25,13 +25,12 @@
         md-alignment="fixed"
         style="min-height: 80vh;"
       >
-        <md-tab id="tab-findings" md-label="Our Findings">
-          We also wanted to provide faculty with information regarding student
-          interest in learning about specific Sustainable Development Goals, and
-          their desired delivery methods. We surveyed 101 students across 11
-          sustainability themed courses and received the following results. To
-          read more about our findings and methodology, see our paper (in 'About
-          the Project').
+        <md-tab id="tab-findings" md-label="Student Interests"
+          >We surveyed 101 students across 11 sustainability themed courses to
+          learn about their interests in specific Sustainable Development Goals
+          and their desired delivery methods. We received the following results.
+          To read more about our findings and methodology, see our paper (in
+          'About the Project').<br />
           <img src="../assets/studentinterestsdg.jpg" />
           <br /><br />
           <img src="../assets/studentinterestdelivery.jpg" />
