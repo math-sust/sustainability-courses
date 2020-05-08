@@ -102,7 +102,7 @@
                 class="md-toolbar-section-end"
               >
                 <md-input
-                  placeholder="Search by name..."
+                  placeholder="Search"
                   v-model="search"
                   @input="searchOnTable"
                 />
@@ -190,8 +190,8 @@ const searchByName = (items, term, sdgs, subjects) => {
   var results = items;
   if (term) {
     results = items.filter((item) =>
-      toLower(item.Name).includes(toLower(term))
-    );
+      toLower(item.Name).includes(toLower(term)) || toLower(item.Subject).includes(toLower(term)) || toLower(item.Number).includes(toLower(term)) || toLower(item.Description).includes(toLower(term))
+  );
   }
   var activeSDGs = [];
   //console.log(sdgs);
@@ -418,6 +418,8 @@ export default {
   float: left;
   width: 33%;
   padding: 5px;
+    cursor: pointer;
+
 }
 
 .active {
