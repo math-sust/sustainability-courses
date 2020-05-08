@@ -19,7 +19,7 @@
           <h2>Course Filters</h2>
           <md-tabs class="md-transparent" md-alignment="fixed">
             <!-- SDGs -->
-            <md-tab id="tab-sdgs" md-label="Sustainability Topics">
+            <md-tab id="tab-sdgs" md-label="SDGs">
               <div class="sdgs">
                 <md-button
                   v-on:click="selectAllSDG"
@@ -50,7 +50,7 @@
               </div>
             </md-tab>
             <!-- Subjects -->
-            <md-tab id="tab-subjects" md-label="Subjects"
+            <md-tab id="tab-subjects" md-label="Department"
               ><div>
                 <div id="toggleSearch">
                   <md-button class="md-raised md-accent" v-on:click="swapALL">{{
