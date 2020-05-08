@@ -31,7 +31,7 @@
           and their desired delivery methods. We received the following results.
           To read more about our findings and methodology, see our paper (in
           'About the Project').<br />
-          <img src="../assets/studentinterestsdg.jpg" />
+          <img src="../assets/studentinterestsdg.png" />
           <br /><br />
           <img src="../assets/studentinterestdelivery.jpg" />
           <p></p>
