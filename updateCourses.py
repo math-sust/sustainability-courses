@@ -15,7 +15,8 @@ for row in range(1, ws.nrows):
     for col in range(ws.ncols):
         if(header[col] == "SDGs"):
             if(ws.cell_value(row,col) != 0 and "," in str(ws.cell_value(row,col))):
-                elm[header[col]]=[int(x) for x in ws.cell_value(row,col).split(",")]
+                sdgs_set = set(int(x) for x in [i.strip() for i in ws.cell_value(row,col).split(",") if i.strip()])
+                elm[header[col]]= sorted(list(sdgs_set))
             else:
                 elm[header[col]]= [ws.cell_value(row,col)]
         else:
